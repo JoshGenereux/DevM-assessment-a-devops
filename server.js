@@ -4,6 +4,15 @@ const app = express()
 const {bots, playerRecord} = require('./data')
 const {shuffleArray} = require('./utils')
 
+var Rollbar = require('rollbar')
+var rollbar = new Rollbar({
+    accessToken: 'd9f5b41391fc41f5b53ed3cb0cbd54e2',
+    captureUncaught: true,
+    captureUnhandledRejections: true,
+})
+
+rollbar.log('Hello world!')
+
 app.use(express.json())
 
 app.get('/',(req, res)=>{
@@ -21,6 +30,7 @@ app.get('/styles', (req, res)=>{
 app.get('/api/robots', (req, res) => {
     try {
         res.status(200).send(botsArr)
+        rollbar.log(botsArr)
     } catch (error) {
         console.log('ERROR GETTING BOTS', error)
         res.sendStatus(400)
