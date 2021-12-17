@@ -8,7 +8,7 @@ describe('shuffleArray should', () => {
     })
 
     test('should actually shuffle them', ()=>{
-        let array = [1,2,3,4,5]
+        let array = [1,2,3,4,5,6,7,8,9,0]
         expect(shuffleArray(array)).not.toEqual(array)
     })
 })
