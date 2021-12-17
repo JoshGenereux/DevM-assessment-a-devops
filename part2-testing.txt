@@ -1,0 +1,49 @@
+
+
+- Sanity Test
+
+    - Steps:
+        1. navigate to localhost:3000
+        2. click through the game, try every button
+        3. play at least 3 rounds or try to win once and lose once
+
+    - Postconditions:
+        1. All buttons should work
+        2. all math problems should work accordingly
+        3. player should be able to pick any bot
+        4. it should show weather you won or lost
+
+
+- Button test
+
+    - Description:
+        Testing all of the buttons, make sure I can click and add every robot.
+
+    - Steps:
+        1. navigate to localhost:3000
+        2. click through the game, try every button
+
+    - Postconditions:
+        1. All robots should be able to be added(2 at a time)
+        2. "See all bots" should work
+        3. "Play again" should work
+
+
+- Bug Report
+
+    - site says you lost, even if you won
+
+    Steps to reproduce:
+        1. navigate to localhost:3000
+        2. play a round
+        3. make sure you "win"
+
+    Expected results:
+        - If you win, wins: should increment
+
+    Actual results:
+        - Wins do not increment, but it will say "You Won!"
+
+    Environment:
+        - Mac OS
+        - chrome
