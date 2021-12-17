@@ -27,14 +27,16 @@ app.get('/styles', (req, res)=>{
     res.sendFile(path.join(__dirname, './public/index.css'))
 })
 
+
 app.get('/api/robots', (req, res) => {
     try {
         res.status(200).send(botsArr)
-        rollbar.log("add robots")
     } catch (error) {
         console.log('ERROR GETTING BOTS', error)
         res.sendStatus(400)
+        rollbar(error)
     }
+    rollbar.log("add robots")
 })
 
 app.get('/api/robots/five', (req, res) => {
