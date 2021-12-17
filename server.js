@@ -30,7 +30,7 @@ app.get('/styles', (req, res)=>{
 app.get('/api/robots', (req, res) => {
     try {
         res.status(200).send(botsArr)
-        rollbar.log(botsArr)
+        rollbar.log("add robots")
     } catch (error) {
         console.log('ERROR GETTING BOTS', error)
         res.sendStatus(400)
@@ -47,6 +47,7 @@ app.get('/api/robots/five', (req, res) => {
         console.log('ERROR GETTING FIVE BOTS', error)
         res.sendStatus(400)
     }
+    rollbar.log("robots shuffled")
 })
 
 app.post('/api/duel', (req, res) => {
@@ -78,6 +79,8 @@ app.post('/api/duel', (req, res) => {
         console.log('ERROR DUELING', error)
         res.sendStatus(400)
     }
+
+    rollbar.log("DUEL")
 })
 
 app.get('/api/player', (req, res) => {
@@ -87,6 +90,8 @@ app.get('/api/player', (req, res) => {
         console.log('ERROR GETTING PLAYER STATS', error)
         res.sendStatus(400)
     }
+
+    rollbar.log("api player stats")
 })
 
 const port = process.env.PORT || 3000
